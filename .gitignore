@@ -1,4 +1,5 @@
 .env
 .ipynb_checkpoints
-train_data.json
-validation_data.json
+train_data.jsonl
+validation_data.jsonl
+wandb
