@@ -4,3 +4,4 @@ train_data.jsonl
 validation_data.jsonl
 wandb
 mistral-discern-finetune
+convert.py
