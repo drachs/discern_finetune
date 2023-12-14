@@ -1,0 +1,46 @@
+root ::= interests
+interests ::= (
+    "{"   ws
+    "\"sports-and-athletics\":"   ws   stringnum   ","   ws
+    "\"sports-and-athletics-confidence\":"   ws   stringnum ","   ws
+    
+    "\"environmentalism-and-sustainability\":"   ws   stringnum ","   ws
+    "\"environmentalism-and-sustainability-confidence\":"   ws   stringnum ","   ws
+
+    "\"gaming-and-e-sports\":"   ws   stringnum ","   ws
+    "\"gaming-and-e-sports-confidence\":"   ws   stringnum ","   ws
+
+    "\"college-and-career\":"   ws   stringnum ","   ws
+    "\"college-and-career-confidence\":"   ws   stringnum ","   ws
+
+    "\"cooking-and-food\":"   ws   stringnum ","   ws
+    "\"cooking-and-food-confidence\":"   ws   stringnum ","   ws
+
+    "\"reading-and-literature\":"   ws   stringnum ","   ws
+    "\"reading-and-literature-confidence\":"   ws   stringnum ","   ws
+
+    "\"writing-and-creative-writing\":"   ws   stringnum ","   ws
+    "\"writing-and-creative-writing-confidence\":"   ws   stringnum ","   ws
+
+    "\"science-and-technology\":"   ws   stringnum ","   ws
+    "\"science-and-technology-confidence\":"   ws   stringnum ","   ws
+
+    "\"mathematics-and-statistics\":"   ws   stringnum ","   ws
+    "\"mathematics-and-statistics-confidence\":"   ws   stringnum ","   ws
+
+    "\"creative-arts\":"   ws   stringnum ","   ws
+    "\"creative-arts-confidence\":"   ws   stringnum ","   ws
+
+    "\"animals-and-nature\":"   ws   stringnum ","   ws
+    "\"animals-and-nature-confidence\":"   ws   stringnum ","   ws
+
+    "\"history-and-social-studies\":"   ws   stringnum ","   ws
+    "\"history-and-social-studies-confidence\":"   ws   stringnum ","   ws
+
+    "\"note\":"   ws string ws
+
+    "}" )
+string ::= "\""   ([^"]*)   "\""
+ws ::= [ \t\r\n]+
+number ::= [0-9]+   "."?   [0-9]*
+stringnum ::= "\""   [0-9]+   "."?   [0-9]*   "\""
