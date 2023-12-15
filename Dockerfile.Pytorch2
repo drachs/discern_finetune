@@ -1,7 +1,19 @@
 FROM --platform=linux/amd64 continuumio/miniconda3
 
+# Pytorch and jupyter environment
 RUN conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 RUN conda install -y jupyterlab ipywidgets
+
+# Docker
+RUN apt update 
+RUN apt install -y docker.io
+
+# AWS Tools
+RUN apt install curl unzip sudo
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN sudo ./aws/install
+RUN rm -rf awscliv2.zip aws
 
 RUN mkdir /opt/notebooks
 WORKDIR /opt/notebooks
