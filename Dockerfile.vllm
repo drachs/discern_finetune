@@ -1,0 +1,15 @@
+FROM --platform=linux/amd64 continuumio/miniconda3
+
+RUN mkdir /opt/notebooks
+WORKDIR /opt/notebooks
+COPY merged_model model
+
+# xformers seems to require pythong 3.10
+RUN conda install -y python=3.10 pytorch torchvision torchaudio pytorch-cuda=12.1 xformers -c xformers -c pytorch -c nvidia
+#RUN conda install -y jupyterlab ipywidgets
+RUN pip install vllm lm-format-enforcer
+
+COPY vllm-server.py test_key.pem test_cert.pem .
+
+EXPOSE 443
+CMD python ./vllm-server.py --model="model/"
